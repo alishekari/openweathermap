@@ -1,12 +1,16 @@
+import datetime
+
+import pytz
 from django.conf import settings
 import requests
 
 
 class WeatherMiniInfo:
-    def __init__(self, min, max, icon):
+    def __init__(self, min, max, icon, date):
         self.min = min
         self.max = max
         self.icon_url = f'http://openweathermap.org/img/wn/{icon}@2x.png'
+        self.date = date
 
 
 class Weather:
@@ -24,11 +28,15 @@ class Weather:
         self.data = requests.get(
             url=Weather.openweathermap_api_url.format(lat=self.lat, lon=self.long, token=self.token)).json()
 
-    def next_seven_days_forecast(self) -> list[WeatherMiniInfo]:
+    def next_seven_days_forecast(self, timezone='Europe/London') -> list[WeatherMiniInfo]:
         daily = self.data['daily']
         forecast = []
 
-        for i in range(1, 8):
-            forecast.append(WeatherMiniInfo(min=daily[i]['temp']['min'], max=daily[i]['temp']['max'],
-                                            icon=daily[i]['weather'][0]['icon']))
+        for i in range(8):
+            forecast.append(WeatherMiniInfo(min=daily[i]['temp']['min'],
+                                            max=daily[i]['temp']['max'],
+                                            icon=daily[i]['weather'][0]['icon'],
+                                            date=datetime.datetime.fromtimestamp(daily[i]['dt'],
+                                                                                 tz=pytz.UTC).astimezone(
+                                                tz=pytz.timezone(timezone))))
         return forecast

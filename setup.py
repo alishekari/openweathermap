@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setuptools.setup(
     name="openweathermap",
-    version="0.1",
+    version="0.1.1",
     author="Ali Shekari",
     author_email="alishekari1991@outlook.com",
     description="openweathermap",
