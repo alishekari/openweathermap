@@ -4,14 +4,14 @@ with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="persian-datetime",
+    name="openweathermap",
     version="0.1",
     author="Ali Shekari",
     author_email="alishekari1991@outlook.com",
     description="openweathermap",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/alishekari/python-persian-datetime",
+    url="https://github.com/alishekari/openweathermap",
     packages=setuptools.find_packages(),
     install_requires=['django', 'requests'],
     classifiers=[
