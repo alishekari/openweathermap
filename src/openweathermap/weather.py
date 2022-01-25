@@ -28,7 +28,7 @@ class Weather:
         self.data = requests.get(
             url=Weather.openweathermap_api_url.format(lat=self.lat, lon=self.long, token=self.token)).json()
 
-    def next_seven_days_forecast(self, timezone='Europe/London') -> list[WeatherMiniInfo]:
+    def next_seven_days_forecast(self, timezone='Europe/London'):
         daily = self.data['daily']
         forecast = []
 

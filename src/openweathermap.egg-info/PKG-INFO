@@ -1,11 +1,12 @@
 Metadata-Version: 2.1
 Name: openweathermap
-Version: 0.1.1
+Version: 0.1.2
 Summary: openweathermap
 Home-page: https://github.com/alishekari/openweathermap
 Author: Ali Shekari
 Author-email: alishekari1991@outlook.com
 License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/alishekari/openweathermap/issues
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3.10
 Classifier: License :: OSI Approved :: MIT License
@@ -14,10 +15,5 @@ Requires-Python: >=3.0
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-get weather json from openweathermap
-
-add this to your django settings:
-
-OPENWEATHERMAP_TOKEN = 'YOUR TOKEN'
-
+UNKNOWN
 
